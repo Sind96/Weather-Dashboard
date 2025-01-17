@@ -4,7 +4,7 @@ import { fetchWeather } from "../services/api.Services";
 export default function SearchBar() {
   const [city, setCity] = useState("");
 
-  const handleSearch = async (event) => {
+  const handleSearch = async (city: string, event) => {
     event.preventDefault();
     try {
       const data = await fetchWeather(city);
@@ -15,15 +15,21 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="flex items-center gap-2">
       <form>
         <input
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter City"
+          className="border px-2 py-1"
         ></input>
-        <button onClick={handleSearch}>Search</button>
+        <button
+          onClick={handleSearch}
+          className="bg-blue-500 text-white px-3 py-1"
+        >
+          Search
+        </button>
       </form>
     </div>
   );
