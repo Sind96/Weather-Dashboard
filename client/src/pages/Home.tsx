@@ -4,7 +4,9 @@ import SearchBar from "../components/SearchBar";
 export default function Home() {
   return (
     <div>
-      <SearchBar />
+      <div className="container mx-auto">
+        <SearchBar />
+      </div>
     </div>
   );
 }
