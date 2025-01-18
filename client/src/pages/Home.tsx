@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
-import { fetchWeather } from "../services/api.Services";
+// import WeatherCard from "../components/WeatherCard";
+// import Forecast from "../components/Forecast";
+// import Favourites from "../components/Favourites";
 
 export default function Home() {
   const [weather, setWeather] = useState("");
