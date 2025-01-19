@@ -1,10 +1,10 @@
-import { WeatherProps } from "../types/weatherTypes";
+import { WeatherCardProps } from "../types/weatherTypes";
 
-export default function WeatherCard({ weather }: WeatherProps) {
-  const temperature = weather?.main?.temp;
-  const description = weather?.weather?.[0]?.description || "N/A";
-  const humidity = weather?.main?.humidity ?? "N/A";
-  const windSpeed = weather?.wind?.speed ?? "N/A";
+export default function WeatherCard({ weatherCardData }: WeatherCardProps) {
+  const temperature = weatherCardData?.main?.temp;
+  const description = weatherCardData?.weather?.[0]?.description || "N/A";
+  const humidity = weatherCardData?.main?.humidity ?? "N/A";
+  const windSpeed = weatherCardData?.wind?.speed ?? "N/A";
 
   return (
     <div className="p-4 bg-blue-100 rounded shadow">

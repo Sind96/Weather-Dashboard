@@ -42,7 +42,7 @@ export async function fetchForecastWeather(city: string) {
             icon: forecast.weather[0].icon,
           });
         }
-        console.log("Parsed Forecast Weather Response:", acc);
+        // console.log("Parsed Forecast Weather Response:", acc);
         return acc;
       },
       []
