@@ -45,9 +45,13 @@ export interface WeatherData {
 
 export interface SearchBarProps {
   setCurrentWeather: (data: WeatherData) => void;
-  setForecastData: (data: any) => void;
+  setForecastData: (data: ForecastWeatherData[]) => void;
 }
 
 export interface WeatherProps {
   weather: WeatherData;
+}
+
+export interface ForecastWeatherData extends WeatherData {
+  dt_txt: string;
 }
