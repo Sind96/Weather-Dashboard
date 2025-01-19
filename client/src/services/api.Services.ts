@@ -31,7 +31,7 @@ export async function fetchForecastWeather(city: string) {
           weather: string;
           icon: string;
         }[],
-        forecast: ForecastWeatherData
+        forecast: ForecastWeatherData["list"][0]
       ) => {
         const date = forecast.dt_txt.split(" ")[0];
         if (!acc.find((entry) => entry.date === date)) {
