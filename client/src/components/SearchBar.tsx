@@ -3,11 +3,7 @@ import {
   fetchCurrentWeather,
   fetchForecastWeather,
 } from "../services/api.Services";
-
-interface SearchBarProps {
-  setCurrentWeather: (data: any) => void;
-  setForecastData: (data: any) => void;
-}
+import { SearchBarProps } from "../types/weatherTypes";
 
 export default function SearchBar({
   setCurrentWeather,
@@ -23,14 +19,20 @@ export default function SearchBar({
   }
 
   return (
-    <div>
+    <div className="flex space-x-4">
       <input
         type="text"
         placeholder="Enter city name"
         value={city}
         onChange={(e) => setCity(e.target.value)}
+        className="border p-2 rounded"
       ></input>
-      <button onClick={handleSearch}>Search</button>
+      <button
+        onClick={handleSearch}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Search
+      </button>
     </div>
   );
 }
