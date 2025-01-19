@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
+import WeatherCard from "../components/WeatherCard";
 
 export default function Home() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -11,6 +12,7 @@ export default function Home() {
         setCurrentWeather={setCurrentWeather}
         setForecastData={setForecastData}
       />
+      {currentWeather && <WeatherCard weather={currentWeather} />}
     </div>
   );
 }
