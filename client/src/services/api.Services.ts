@@ -7,7 +7,7 @@ export async function fetchCurrentWeather(city: string) {
       `${baseUrl}weather?q=${city}&appid=${API_KEY}`
     );
     const jsonResponse = await response.json();
-    console.log("Parsed Current Weather Response:", jsonResponse);
+    // console.log("Parsed Current Weather Response:", jsonResponse);
     return jsonResponse;
   } catch (error) {
     console.error("Error fetchCurrentWeather:", error);
@@ -21,7 +21,7 @@ export async function fetchForecastWeather(city: string) {
       `${baseUrl}forecast?q=${city}&appid=${API_KEY}`
     );
     const jsonResponse = await response.json();
-    console.log("Parsed Forecast Weather Response:", jsonResponse);
+    // console.log("Parsed Forecast Weather Response:", jsonResponse);
     return jsonResponse;
   } catch (error) {
     console.error("Error fetchForecastWeather:", error);
