@@ -1,27 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SearchBar from "../components/SearchBar";
-// import WeatherCard from "../components/WeatherCard";
-// import Forecast from "../components/Forecast";
-// import Favourites from "../components/Favourites";
 
 export default function Home() {
-  const [weather, setWeather] = useState("");
-
-  const getWeather = async (city: string) => {
-    try {
-      const data = await fetchWeather(city);
-      console.log(data);
-      setWeather(data);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecastData, setForecastData] = useState([]);
 
   return (
-    <div>
-      <div className="container mx-auto">
-        <SearchBar />
-      </div>
+    <div className="container mx-auto p-4 space-y-6">
+      <SearchBar
+        setCurrentWeather={setCurrentWeather}
+        setForecastData={setForecastData}
+      />
     </div>
   );
 }
