@@ -1,19 +1,28 @@
 import { WeatherProps } from "../types/weatherTypes";
 
 export default function WeatherCard({ weather }: WeatherProps) {
-  const tempInFarenheis = weather.main.temp;
-  const temperature = Math.round((tempInFarenheis - 32) * (5 / 9) * 100) / 100;
-  const description = weather.weather[0].description;
-  const humidity = weather.main.humidity;
-  const windSpeed = weather.wind.speed;
+  const temperature = weather?.main?.temp;
+  const description = weather?.weather?.[0]?.description || "N/A";
+  const humidity = weather?.main?.humidity ?? "N/A";
+  const windSpeed = weather?.wind?.speed ?? "N/A";
 
   return (
-    <div>
-      <h2>Current Weather</h2>
-      <p>Temperature: {temperature}°C</p>
-      <p>Description: {description}</p>
-      <p>Humidity: {humidity}%</p>
-      <p>Wind Speed: {windSpeed} m/s</p>
+    <div className="p-4 bg-blue-100 rounded shadow">
+      <h2 className="text-xl font-bold mb-2">Current Weather</h2>
+      <div className="space-y-1">
+        <p>
+          <span className="font-semibold">Temperature:</span> {temperature}°C
+        </p>
+        <p>
+          <span className="font-semibold">Description:</span> {description}
+        </p>
+        <p>
+          <span className="font-semibold">Humidity:</span> {humidity}%
+        </p>
+        <p>
+          <span className="font-semibold">Wind Speed:</span> {windSpeed} m/s
+        </p>
+      </div>
     </div>
   );
 }

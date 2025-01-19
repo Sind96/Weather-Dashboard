@@ -29,7 +29,10 @@ export default function SearchBar({
       ></input>
       <button
         onClick={handleSearch}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className={`${
+          city ? "bg-blue-500" : "bg-gray-300 cursor-not-allowed"
+        } text-white px-4 py-2 rounded`}
+        disabled={!city}
       >
         Search
       </button>
