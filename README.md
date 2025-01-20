@@ -81,7 +81,7 @@ To run this project locally, you'll need the following:
 [Jest]: https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white
 [Jest-url]: https://jestjs.io/docs/getting-started
 [TailwindCSS]: https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat
-[Tailwind-url]: https://tailwindcss.com/
+[TailwindCSS-url]: https://tailwindcss.com/
 [TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=flat
 [TypeScript-url]: https://www.typescriptlang.org/
 [Node.js]: https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&logoColor=fff&style=flat
