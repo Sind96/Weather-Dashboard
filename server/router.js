@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getWeather,
   getFavorites,
   addFavorite,
-} = require("./controllers/weatherController");
+  deleteFavorite,
+} = require("./controller/favoriteController");
 
 router.get("/favorites", getFavorites);
 router.post("/favorites", addFavorite);
-router.delete("/favorites/:id", deleteFavorite);
+router.delete("/favorites/:city", deleteFavorite);
 
 module.exports = router;
