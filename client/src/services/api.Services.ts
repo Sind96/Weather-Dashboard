@@ -34,9 +34,12 @@ export async function fetchForecastWeather(city: string) {
         forecast: ForecastWeatherData["list"][0]
       ) => {
         const date = forecast.dt_txt.split(" ")[0];
-        if (!acc.find((entry) => entry.date === date)) {
+        const [year, month, day] = date.split("-");
+        const formattedDate = `${day}-${month}-${year}`;
+        // console.log("api-Date", formattedDate);
+        if (!acc.find((entry) => entry.date === formattedDate)) {
           acc.push({
-            date,
+            date: formattedDate,
             temperature: Math.round(forecast.main.temp),
             weather: forecast.weather[0].description,
             icon: forecast.weather[0].icon,

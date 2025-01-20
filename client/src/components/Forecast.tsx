@@ -23,6 +23,10 @@ ChartJS.register(
 
 export default function Forecast({ forecastWeatherData }: ForecastProps) {
   console.log("tifd", forecastWeatherData);
+  const labels = forecastWeatherData.map((day) => day.date);
+  console.log("labels", labels);
+  const temperatures = forecastWeatherData.map((day) => day.temperature);
+  console.log("temperatures", temperatures);
 
   return <div></div>;
 }
