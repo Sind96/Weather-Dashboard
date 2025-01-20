@@ -22,11 +22,24 @@ export default function Favourites({
 
   // Delete a city from the favorites
   async function handleDelete(city: string) {
+    console.log("City to delete:", city); // Logs the city to delete
     try {
-      await fetch(`http://127.0.0.1:3000/favorites/${city}`, {
+      const response = await fetch(`http://127.0.0.1:3000/favorites/${city}`, {
         method: "DELETE",
       });
-      setFavorites(favoriteCities.filter((fav) => fav !== city));
+
+      if (response.ok) {
+        // Update the favorites list after deletion
+        setFavorites((prevFavorites: string[]) => {
+          const updatedFavorites = prevFavorites.filter(
+            (fav: string) => fav !== city
+          );
+          console.log("Updated favorites list:", updatedFavorites); // Correctly shows the updated list
+          return updatedFavorites;
+        });
+      } else {
+        console.error("Failed to delete city:", response.statusText);
+      }
     } catch (error) {
       console.error("Error deleting favorite:", error);
     }

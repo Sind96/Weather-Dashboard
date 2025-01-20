@@ -29,6 +29,25 @@ export default function SearchBar({
     }
   }
 
+  async function handleAddToFavorites() {
+    try {
+      const response = await fetch("http://127.0.0.1:3000/favorites", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city }),
+      });
+      if (response.ok) {
+        alert(`${city} has been added to favorites!`);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error || "Failed to add to favorites.");
+      }
+    } catch (error) {
+      console.error("Error adding to favorites:", error);
+      throw Error;
+    }
+  }
+
   return (
     <div className="flex space-x-4">
       <input
@@ -46,6 +65,15 @@ export default function SearchBar({
         disabled={!city}
       >
         {loading ? "Loading..." : "Search"}
+      </button>
+      <button
+        onClick={handleAddToFavorites}
+        className={`${
+          city ? "bg-green-500" : "bg-gray-300 cursor-not-allowed"
+        } text-white px-4 py-2 rounded`}
+        disabled={!city}
+      >
+        Add to Favorites
       </button>
       {error && (
         <div className="text-red-500 mt-2">
