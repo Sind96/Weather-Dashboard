@@ -3,7 +3,7 @@ import SearchBar from "../components/SearchBar";
 import WeatherCard from "../components/WeatherCard";
 import { ForecastWeatherDataTrim, WeatherData } from "../types/weatherTypes";
 import Forecast from "../components/Forecast";
-import Favourites from "../components/Favorites";
+import Favourites from "../components/Favourites";
 
 export default function Home() {
   const [currentWeather, setCurrentWeather] = useState<WeatherData | null>(
@@ -24,7 +24,7 @@ export default function Home() {
       {forecastData.length > 0 && (
         <Forecast forecastWeatherData={forecastData} />
       )}
-      <Favourites favoriteCities ={favorites} setFavorites={setFavorites} />
+      <Favourites favoriteCities={favorites} setFavorites={setFavorites} />
     </div>
   );
 }
