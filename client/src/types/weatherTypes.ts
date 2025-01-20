@@ -93,5 +93,12 @@ export interface WeatherCardProps {
 }
 
 export interface ForecastProps {
-  forecastWeatherData: ForecastWeatherData[];
+  forecastWeatherData: ForecastWeatherDataTrim[];
+}
+
+export interface ForecastWeatherDataTrim {
+  date: string;
+  icon: string;
+  temperature: number;
+  weather: string;
 }

@@ -22,6 +22,7 @@ ChartJS.register(
 );
 
 export default function Forecast({ forecastWeatherData }: ForecastProps) {
-  console.log(forecastWeatherData);
+  console.log("tifd", forecastWeatherData);
+
   return <div></div>;
 }
