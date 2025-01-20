@@ -1,6 +1,7 @@
 import { WeatherCardProps } from "../types/weatherTypes";
 
 export default function WeatherCard({ weatherCardData }: WeatherCardProps) {
+  
   const temperature = weatherCardData?.main?.temp;
   const description = weatherCardData?.weather?.[0]?.description || "N/A";
   const humidity = weatherCardData?.main?.humidity ?? "N/A";

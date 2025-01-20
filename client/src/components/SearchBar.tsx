@@ -11,9 +11,11 @@ export default function SearchBar({
 }: SearchBarProps) {
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSearch() {
     setLoading(true);
+    setError(null);
     try {
       const weather = await fetchCurrentWeather(city);
       const forecast = await fetchForecastWeather(city);
@@ -21,7 +23,7 @@ export default function SearchBar({
       setForecastData(forecast);
     } catch (error) {
       console.error("There is an error with handleSearch", error);
-      throw Error;
+      setError("Failed to fetch weather data. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -45,6 +47,11 @@ export default function SearchBar({
       >
         {loading ? "Loading..." : "Search"}
       </button>
+      {error && (
+        <div className="text-red-500 mt-2">
+          <p>{error}</p>
+        </div>
+      )}
     </div>
   );
 }
