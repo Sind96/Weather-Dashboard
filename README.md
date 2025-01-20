@@ -1,4 +1,4 @@
-# ToDo List App
+# Weather Dashboard
 
 This Weather Dashboard allows users to search for city weather data, view current weather conditions, and see a 5-day forecast. Users can also add and delete cities from their favorites list for quick access to their preferred locations.
 
