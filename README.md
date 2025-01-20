@@ -61,7 +61,7 @@ To run this project locally, you'll need the following:
 
 ## Tech Stack
 
-[![TypeScript][TypeScript]][TypeScript-url][![Node.js][Node.js]][Node.js-url][![Express.js][Express.js]][Express.js-url] [![MongoDB][Mongo-Db]][Mongo-Db-url] [![Mongoose][Mongoose]][Mongoose-url] [![GitHub][GitHub]][GitHub-url] [![ESLint][ESLint]][ESLint-url] [![Prettier][Prettier]][Prettier-url][![Chart.js][Chart.js]][Chart.js-url]
+[![TypeScript][TypeScript]][TypeScript-url][![TailwindCSS][TailwindCSS]][TailwindCSS-url][![Node.js][Node.js]][Node.js-url][![Express.js][Express.js]][Express.js-url] [![MongoDB][Mongo-Db]][Mongo-Db-url] [![Mongoose][Mongoose]][Mongoose-url] [![GitHub][GitHub]][GitHub-url] [![ESLint][ESLint]][ESLint-url] [![Prettier][Prettier]][Prettier-url][![Chart.js][Chart.js]][Chart.js-url]
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
