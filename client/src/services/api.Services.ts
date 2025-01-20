@@ -37,12 +37,11 @@ export async function fetchForecastWeather(city: string) {
         if (!acc.find((entry) => entry.date === date)) {
           acc.push({
             date,
-            temperature: forecast.main.temp,
+            temperature: Math.round(forecast.main.temp),
             weather: forecast.weather[0].description,
             icon: forecast.weather[0].icon,
           });
         }
-        // console.log("Parsed Forecast Weather Response:", acc);
         return acc;
       },
       []
