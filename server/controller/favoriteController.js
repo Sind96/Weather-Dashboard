@@ -1,4 +1,4 @@
-const Favorite = require("../models/weatherController");
+const Favorite = require("../model/Favorite");
 
 exports.getFavorites = async (req, res) => {
   try {
