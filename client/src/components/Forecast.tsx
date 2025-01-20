@@ -28,5 +28,49 @@ export default function Forecast({ forecastWeatherData }: ForecastProps) {
   const temperatures = forecastWeatherData.map((day) => day.temperature);
   console.log("temperatures", temperatures);
 
-  return <div></div>;
+  const chartData = {
+    labels,
+    datasets: [
+      {
+        label: "Daily Temperature (°C)",
+        data: temperatures,
+        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        tension: 0.4,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: "5-Day Temperature Forecast",
+      },
+    },
+    scales: {
+      y: {
+        title: {
+          display: true,
+          text: "Temperature (°C)",
+        },
+      },
+      x: {
+        title: {
+          display: true,
+          text: "Date",
+        },
+      },
+    },
+  };
+
+  return (
+    <div className="forecast-chart bg-white p-4 rounded shadow">
+      <Line data={chartData} options={chartOptions} />
+    </div>
+  );
 }
