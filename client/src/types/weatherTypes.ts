@@ -102,3 +102,8 @@ export interface ForecastWeatherDataTrim {
   temperature: number;
   weather: string;
 }
+
+export interface FavouritesProps {
+  favoriteCities: string[];
+  setFavorites: (favorites: string[]) => void;
+}

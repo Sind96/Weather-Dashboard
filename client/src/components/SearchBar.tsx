@@ -12,10 +12,15 @@ export default function SearchBar({
   const [city, setCity] = useState("");
 
   async function handleSearch() {
-    const weather = await fetchCurrentWeather(city);
-    const forecast = await fetchForecastWeather(city);
-    setCurrentWeather(weather);
-    setForecastData(forecast);
+    try {
+      const weather = await fetchCurrentWeather(city);
+      const forecast = await fetchForecastWeather(city);
+      setCurrentWeather(weather);
+      setForecastData(forecast);
+    } catch (error) {
+      console.error("There is an error with handleSearch", error);
+      throw Error;
+    }
   }
 
   return (
