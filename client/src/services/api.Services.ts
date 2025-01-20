@@ -9,7 +9,6 @@ export async function fetchCurrentWeather(city: string) {
       `${baseUrl}weather?q=${city}&units=metric&appid=${API_KEY}`
     );
     const jsonResponse = await response.json();
-    // console.log("Parsed Current Weather Response:", jsonResponse);
     return jsonResponse;
   } catch (error) {
     console.error("Error fetchCurrentWeather:", error);
@@ -36,7 +35,6 @@ export async function fetchForecastWeather(city: string) {
         const date = forecast.dt_txt.split(" ")[0];
         const [year, month, day] = date.split("-");
         const formattedDate = `${day}-${month}-${year}`;
-        // console.log("api-Date", formattedDate);
         if (!acc.find((entry) => entry.date === formattedDate)) {
           acc.push({
             date: formattedDate,

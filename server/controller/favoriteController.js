@@ -29,7 +29,6 @@ exports.addFavorite = async (req, res) => {
 
 exports.deleteFavorite = async (req, res) => {
   const { city } = req.params;
-  console.log("backendcity", city);
   try {
     await Favorite.findOneAndDelete({ city: city });
     res.status(204).send();
