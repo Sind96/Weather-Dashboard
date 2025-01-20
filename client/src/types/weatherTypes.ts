@@ -105,5 +105,5 @@ export interface ForecastWeatherDataTrim {
 
 export interface FavouritesProps {
   favoriteCities: string[];
-  setFavorites: (favorites: string[]) => void;
+  setFavorites: (favorites: string[] | ((prevFavorites: string[]) => string[])) => void;
 }
