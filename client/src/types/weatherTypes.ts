@@ -85,7 +85,7 @@ export interface ForecastWeatherData {
 
 export interface SearchBarProps {
   setCurrentWeather: (data: WeatherData) => void;
-  setForecastData: (data: ForecastWeatherData[]) => void;
+  setForecastData: (data: ForecastWeatherDataTrim[]) => void;
 }
 
 export interface WeatherCardProps {
