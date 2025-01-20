@@ -66,7 +66,10 @@ export default function Forecast({ forecastWeatherData }: ForecastProps) {
   };
 
   return (
-    <div className="forecast-chart bg-white p-4 rounded shadow">
+    <div className="bg-white p-6 rounded-xl shadow-lg mt-6">
+      <h3 className="text-xl font-semibold text-center mb-4">
+        5-Day Temperature Forecast
+      </h3>
       <Line data={chartData} options={chartOptions} />
     </div>
   );

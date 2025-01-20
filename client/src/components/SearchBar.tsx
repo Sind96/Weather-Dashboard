@@ -49,19 +49,21 @@ export default function SearchBar({
   }
 
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4 mb-8">
       <input
         type="text"
         placeholder="Enter city name"
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        className="border p-2 rounded"
+        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
       ></input>
       <button
         onClick={handleSearch}
         className={`${
-          city ? "bg-blue-500" : "bg-gray-300 cursor-not-allowed"
-        } text-white px-4 py-2 rounded`}
+          city
+            ? "bg-blue-500 hover:bg-blue-600"
+            : "bg-gray-300 cursor-not-allowed"
+        } text-white px-6 py-2 rounded-lg transition`}
         disabled={!city}
       >
         {loading ? "Loading..." : "Search"}
@@ -69,8 +71,10 @@ export default function SearchBar({
       <button
         onClick={handleAddToFavorites}
         className={`${
-          city ? "bg-green-500" : "bg-gray-300 cursor-not-allowed"
-        } text-white px-4 py-2 rounded`}
+          city
+            ? "bg-green-500 hover:bg-green-600"
+            : "bg-gray-300 cursor-not-allowed"
+        } text-white px-6 py-2 rounded-lg transition`}
         disabled={!city}
       >
         Add to Favorites

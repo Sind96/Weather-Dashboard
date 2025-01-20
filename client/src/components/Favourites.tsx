@@ -43,18 +43,18 @@ export default function Favourites({
   }
 
   return (
-    <div className="favorites-list bg-gray-100 p-4 rounded shadow">
-      <h2 className="text-lg font-bold mb-4">Favorite Cities</h2>
-      <ul className="space-y-2">
+    <div className="bg-gray-800 p-6 rounded-xl shadow-lg space-y-4 mt-8">
+      <h2 className="text-2xl font-semibold text-white">Favorite Cities</h2>
+      <ul className="space-y-3">
         {favoriteCities.map((city) => (
           <li
             key={city}
-            className="flex justify-between items-center bg-white p-2 rounded shadow"
+            className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:bg-gray-50"
           >
-            <span>{city}</span>
+            <span className="text-lg font-semibold text-gray-800">{city}</span>
             <button
               onClick={() => handleDelete(city)}
-              className="text-red-500 hover:underline"
+              className="text-red-500 hover:text-red-700"
             >
               Delete
             </button>

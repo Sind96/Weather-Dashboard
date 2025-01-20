@@ -15,16 +15,18 @@ export default function Home() {
   const [favorites, setFavorites] = useState<string[]>([]);
 
   return (
-    <div className="container mx-auto p-4 space-y-6">
-      <SearchBar
-        setCurrentWeather={setCurrentWeather}
-        setForecastData={setForecastData}
-      />
-      {currentWeather && <WeatherCard weatherCardData={currentWeather} />}
-      {forecastData.length > 0 && (
-        <Forecast forecastWeatherData={forecastData} />
-      )}
-      <Favourites favoriteCities={favorites} setFavorites={setFavorites} />
+    <div className="bg-gray-900 min-h-screen text-Black p-6">
+      <div className="max-w-4xl mx-auto">
+        <SearchBar
+          setCurrentWeather={setCurrentWeather}
+          setForecastData={setForecastData}
+        />
+        {currentWeather && <WeatherCard weatherCardData={currentWeather} />}
+        {forecastData.length > 0 && (
+          <Forecast forecastWeatherData={forecastData} />
+        )}
+        <Favourites favoriteCities={favorites} setFavorites={setFavorites} />
+      </div>
     </div>
   );
 }
