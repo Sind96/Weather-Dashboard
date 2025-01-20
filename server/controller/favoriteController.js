@@ -12,7 +12,14 @@ exports.getFavorites = async (req, res) => {
 
 exports.addFavorite = async (req, res) => {
   const { city } = req.body;
+  if (!city) {
+    return res.status(400).json({ error: "City name is required" });
+  }
   try {
+    const existingFavorite = await Favorite.findOne({ city });
+    if (existingFavorite) {
+      return res.status(409).json({ error: "City is already in favorites" });
+    }
     const newFavorite = await Favorite.create({ city });
     res.status(201).json(newFavorite);
   } catch (error) {
@@ -21,7 +28,7 @@ exports.addFavorite = async (req, res) => {
 };
 
 exports.deleteFavorite = async (req, res) => {
-  const { id } = req.params;
+  const { city } = req.params;
   try {
     await Favorite.findByIdAndDelete(id);
     res.status(204).send();
