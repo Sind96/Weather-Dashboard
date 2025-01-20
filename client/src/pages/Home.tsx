@@ -24,7 +24,7 @@ export default function Home() {
       {forecastData.length > 0 && (
         <Forecast forecastWeatherData={forecastData} />
       )}
-      <Favourites favoriteCities ={favorites} setFavorites={setFavorites} />
+      {/* <Favourites favoriteCities ={favorites} setFavorites={setFavorites} /> */}
     </div>
   );
 }

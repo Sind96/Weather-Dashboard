@@ -9,9 +9,11 @@ export default function SearchBar({
   setCurrentWeather,
   setForecastData,
 }: SearchBarProps) {
+  const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
 
   async function handleSearch() {
+    setLoading(true);
     try {
       const weather = await fetchCurrentWeather(city);
       const forecast = await fetchForecastWeather(city);
@@ -20,6 +22,8 @@ export default function SearchBar({
     } catch (error) {
       console.error("There is an error with handleSearch", error);
       throw Error;
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -39,7 +43,7 @@ export default function SearchBar({
         } text-white px-4 py-2 rounded`}
         disabled={!city}
       >
-        Search
+        {loading ? "Loading..." : "Search"}
       </button>
     </div>
   );
