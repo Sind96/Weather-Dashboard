@@ -9,7 +9,6 @@ export async function fetchCurrentWeather(city: string) {
       `${baseUrl}weather?q=${city}&units=metric&appid=${API_KEY}`
     );
     const jsonResponse = await response.json();
-    console.log("thisisresponse", jsonResponse);
     return jsonResponse;
   } catch (error) {
     console.error("Error fetchCurrentWeather:", error);
