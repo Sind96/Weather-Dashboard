@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const FavoriteSchema = new mongoose.Schema({
   city: { type: String, required: true, unique: true },
   userId: { type: String },
 });
 
-module.exports = mongoose.model("Favorite", FavoriteSchema);
+export default mongoose.model("Favorite", FavoriteSchema);
