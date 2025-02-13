@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { FavouritesProps } from "../types/weatherTypes";
+import { FavouritesProps } from "../types/types";
 
 export default function Favourites({
   favoriteCities,

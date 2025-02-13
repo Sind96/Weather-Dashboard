@@ -3,7 +3,7 @@ import {
   fetchCurrentWeather,
   fetchForecastWeather,
 } from "../services/api.Services";
-import { SearchBarProps } from "../types/weatherTypes";
+import { SearchBarProps } from "../types/types";
 
 export default function SearchBar({
   setCurrentWeather,

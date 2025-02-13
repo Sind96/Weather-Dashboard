@@ -1,4 +1,4 @@
-import { ForecastProps } from "../types/weatherTypes";
+import { ForecastProps } from "../types/types";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,

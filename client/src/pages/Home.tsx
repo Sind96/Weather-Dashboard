@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import WeatherCard from "../components/WeatherCard";
-import { ForecastWeatherDataTrim, WeatherData } from "../types/weatherTypes";
+import { ForecastWeatherDataTrim, WeatherData } from "../types/types";
 import Forecast from "../components/Forecast";
 import Favourites from "../components/Favourites";
 

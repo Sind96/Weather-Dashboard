@@ -1,4 +1,4 @@
-import { WeatherCardProps } from "../types/weatherTypes";
+import { WeatherCardProps } from "../types/types";
 
 export default function WeatherCard({ weatherCardData }: WeatherCardProps) {
   const temperature = weatherCardData?.main?.temp;
