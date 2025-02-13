@@ -5,8 +5,8 @@ export const getFavorites = async (req, res) => {
     const favorites = await Favorite.find();
     res.json(favorites);
   } catch (error) {
-    console.error(`Error in getFavorites: ${error.message}`);
-    res.status(500).json({ error: "Error fetching favorites" });
+    console.error(`Error in getFavorites: ${error.message}\n${error.stack}`);
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
 
@@ -23,9 +23,11 @@ export const addFavorite = async (req, res) => {
     const newFavorite = await Favorite.create({ city });
     res.status(201).json(newFavorite);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(`Error in addFavorite: ${error.message}\n${error.stack}`);
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
+
 
 export const deleteFavorite = async (req, res) => {
   const { city } = req.params;
@@ -33,7 +35,7 @@ export const deleteFavorite = async (req, res) => {
     await Favorite.findOneAndDelete({ city: city });
     res.status(204).send();
   } catch (error) {
-    console.error(`Error in deleteFavorite: ${error.message}`);
-    res.status(500).json({ error: "Error fetching favorites" });
+    console.error(`Error in deleteFavorite: ${error.message}\n${error.stack}`);
+    res.status(500).json({ error: "Internal Server error" });
   }
 };
