@@ -1,18 +1,18 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const router = require("./router");
-require("dotenv").config();
+import express from "express";
+import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import router from "./router.js";
+
+dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(router);
 
-// Async function to connect to MongoDB & Start Server
 (async function () {
   try {
     mongoose.connect(process.env.MONGO_URI);
