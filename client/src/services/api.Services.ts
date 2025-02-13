@@ -1,12 +1,12 @@
 import { ForecastWeatherData } from "../types/types";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-const baseUrl = "https://api.openweathermap.org/data/2.5/";
+const WEATHER_URL = import.meta.env.VITE_WEATHER_URL;
 
 export async function fetchCurrentWeather(city: string) {
   try {
     const response = await fetch(
-      `${baseUrl}weather?q=${city}&units=metric&appid=${API_KEY}`
+      `${WEATHER_URL}weather?q=${city}&units=metric&appid=${API_KEY}`
     );
     const jsonResponse = await response.json();
     return jsonResponse;
@@ -19,7 +19,7 @@ export async function fetchCurrentWeather(city: string) {
 export async function fetchForecastWeather(city: string) {
   try {
     const response = await fetch(
-      `${baseUrl}forecast?q=${city}&units=metric&appid=${API_KEY}`
+      `${WEATHER_URL}forecast?q=${city}&units=metric&appid=${API_KEY}`
     );
     const jsonResponse = await response.json();
     const dailyForecast = jsonResponse.list.reduce(
