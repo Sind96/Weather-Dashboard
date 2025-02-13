@@ -1,6 +1,6 @@
-const Favorite = require("../model/Favorite");
+import Favorite from "../model/Favorite.js";
 
-exports.getFavorites = async (req, res) => {
+export const getFavorites = async (req, res) => {
   try {
     const favorites = await Favorite.find();
     res.json(favorites);
@@ -10,7 +10,7 @@ exports.getFavorites = async (req, res) => {
   }
 };
 
-exports.addFavorite = async (req, res) => {
+export const addFavorite = async (req, res) => {
   const { city } = req.body;
   if (!city) {
     return res.status(400).json({ error: "City name is required" });
@@ -27,7 +27,7 @@ exports.addFavorite = async (req, res) => {
   }
 };
 
-exports.deleteFavorite = async (req, res) => {
+export const deleteFavorite = async (req, res) => {
   const { city } = req.params;
   try {
     await Favorite.findOneAndDelete({ city: city });
