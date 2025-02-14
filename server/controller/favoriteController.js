@@ -3,7 +3,7 @@ import Favorite from "../model/Favorite.js";
 export const getFavorites = async (req, res) => {
   try {
     const favorites = await Favorite.find();
-    res.json(favorites);
+    res.status(200).json(favorites);
   } catch (error) {
     console.error(`Error in getFavorites: ${error.message}\n${error.stack}`);
     res.status(500).json({ error: "Internal Server error" });
@@ -28,12 +28,11 @@ export const addFavorite = async (req, res) => {
   }
 };
 
-
 export const deleteFavorite = async (req, res) => {
   const { city } = req.params;
   try {
     await Favorite.findOneAndDelete({ city: city });
-    res.status(204).send();
+    res.status(204).json();
   } catch (error) {
     console.error(`Error in deleteFavorite: ${error.message}\n${error.stack}`);
     res.status(500).json({ error: "Internal Server error" });
