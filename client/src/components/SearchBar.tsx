@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   fetchCurrentWeather,
   fetchForecastWeather,
-} from "../services/api.Services";
+} from "../services/api.services";
 import { SearchBarProps } from "../types/types";
 
 export default function SearchBar({
