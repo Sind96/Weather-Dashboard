@@ -16,7 +16,7 @@ test("getFavourites should return an empty array initially", async () => {
     json: jest.fn(),
   };
 
-  await getFavorites();
+  await getFavorites(req, res);
 
   expect(res.status).toHaveBeenCalledWith(200);
   expect(res.json).toHaveBeenCalledWith({ tasks: [] });
