@@ -40,3 +40,22 @@ test("addFavorite should add a city to favourites", async () => {
     favorites: [],
   });
 });
+
+test("deleteFavorite should delete a city from favourites", async () => {
+  const req = {
+    params: {
+      city: "London",
+    },
+  };
+  const res = {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn(),
+  };
+
+  await deleteFavorite(req, res);
+
+  expect(res.status).toHaveBeenCalledWith(204);
+  expect(res.json).toHaveBeenCalledWith({
+    city: [],
+  });
+});
