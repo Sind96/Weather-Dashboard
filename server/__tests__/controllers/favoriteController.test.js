@@ -19,6 +19,24 @@ test("getFavourites should return an empty array initially", async () => {
   await getFavorites(req, res);
 
   expect(res.status).toHaveBeenCalledWith(200);
-  expect(res.json).toHaveBeenCalledWith({ tasks: [] });
+  expect(res.json).toHaveBeenCalledWith({ favorites: [] });
 });
- 
+
+test("addFavorite should add a city to favourites", async () => {
+  const req = {
+    body: {
+      city: "London",
+    },
+  };
+  const res = {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn(),
+  };
+
+  await addFavorite(req, res);
+
+  expect(res.status).toHaveBeenCalledWith(201);
+  expect(res.json).toHaveBeenCalledWith({
+    favorites: [],
+  });
+});
