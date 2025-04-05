@@ -6,3 +6,7 @@ import Favorite from "../../model/Favorite.js";
 
 beforeAll(async () => await connectTestDB());
 afterAll(async () => await disconnectTestDB());
+
+describe("Test API Endpoints", () => {
+  beforeEach(async () => await Favorite.deleteMany({}));
+});
