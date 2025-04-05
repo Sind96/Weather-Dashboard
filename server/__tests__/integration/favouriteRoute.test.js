@@ -4,3 +4,5 @@ import app from "../../index,js";
 import { connectTestDB, disconnectTestDB } from "../setupTestDB";
 import Favorite from "../../model/Favorite.js";
 
+beforeAll(async () => await connectTestDB());
+afterAll(async () => await disconnectTestDB());
