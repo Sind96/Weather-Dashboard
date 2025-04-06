@@ -33,12 +33,12 @@ describe("Test API Endpoints", () => {
     expect(response.body.favorites[0].city).toBe("London");
   });
 
-  test("", async () => {
+  test("DELETE /favorites/:city should delete city from favourite", async () => {
     const city = await Favorite.create({
       city: "London",
     });
 
-    const response = await request(app).delete("/favorites/${city}");
+    const response = await request(app).delete(`/favorites/${city.city}`);
 
     expect(response.status).toBe(204);
     expect(response.body.message).toBe("City removed from favourites");
