@@ -1,6 +1,6 @@
 import request from "supertest";
 import mongoose from "mongoose";
-import app from "../../index,js";
+import app from "../../index.js";
 import { connectTestDB, disconnectTestDB } from "../setupTestDB";
 import Favorite from "../../model/Favorite.js";
 import { response } from "express";
@@ -27,20 +27,20 @@ describe("Test API Endpoints", () => {
     });
 
     const response = await request(app).get("/favorites");
+
+    expect(response.status).toBe(200);
+    expect(response.body.favorites.length).toBe(1);
+    expect(response.body.favorites[0].city).toBe("London");
   });
 
-  expect(response.status).toBe(200);
-  expect(response.body.favorites.length).toBe(1);
-  expect(response.body.favorites[0].city).toBe("London");
-});
+  test("", async () => {
+    const city = await Favorite.create({
+      city: "London",
+    });
 
-test("", async () => {
-  const city = await Favorite.create({
-    city: "London",
+    const response = await request(app).delete("/favorites/${city}");
+
+    expect(response.status).toBe(204);
+    expect(response.body.message).toBe("City removed from favourites");
   });
-
-  const response = await request(app).delete("/favorites/${city}");
-
-  expect(response.status).toBe(204);
-  expect(response.body.message).toBe("City removed from favourites");
 });
