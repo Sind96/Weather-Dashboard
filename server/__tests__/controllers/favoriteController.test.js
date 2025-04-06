@@ -19,7 +19,7 @@ test("getFavourites should return an empty array initially", async () => {
   await getFavorites(req, res);
 
   expect(res.status).toHaveBeenCalledWith(200);
-  expect(res.json).toHaveBeenCalledWith({ favorites: [] });
+  expect(res.json).toHaveBeenCalledWith([]);
 });
 
 test("addFavorite should add a city to favourites", async () => {
@@ -36,9 +36,9 @@ test("addFavorite should add a city to favourites", async () => {
   await addFavorite(req, res);
 
   expect(res.status).toHaveBeenCalledWith(201);
-  expect(res.json).toHaveBeenCalledWith({
-    favorites: [],
-  });
+  expect(res.json).toHaveBeenCalledWith(
+    expect.objectContaining({ city: "London" })
+  );
 });
 
 test("deleteFavorite should delete a city from favourites", async () => {
