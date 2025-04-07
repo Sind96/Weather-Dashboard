@@ -17,8 +17,8 @@ describe("Test API Endpoints", () => {
     });
 
     expect(response.status).toBe(201);
-    expect(response.body.newFavorite).toHaveProperty("_id");
-    expect(response.body.newFavorite.city).toBe("Integration Test City");
+    expect(response.body).toHaveProperty("_id");
+    expect(response.body.city).toBe("Integration Test City");
   });
 
   test("GET /favorites should return favourite cities", async () => {
