@@ -10,6 +10,7 @@ beforeAll(async () => connectTestDB());
 afterAll(async () => disconnectTestDB());
 
 test("getFavourites should return an empty array initially", async () => {
+  beforeEach(async () => await Favorite.deleteMany({}));
   const req = {};
   const res = {
     status: jest.fn().mockReturnThis(),
@@ -23,6 +24,7 @@ test("getFavourites should return an empty array initially", async () => {
 });
 
 test("addFavorite should add a city to favourites", async () => {
+  beforeEach(async () => await Favorite.deleteMany({}));
   const req = {
     body: {
       city: "London",
@@ -42,6 +44,7 @@ test("addFavorite should add a city to favourites", async () => {
 });
 
 test("deleteFavorite should delete a city from favourites", async () => {
+  beforeEach(async () => await Favorite.deleteMany({}));
   const req = {
     params: {
       city: "London",
