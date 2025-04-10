@@ -3,7 +3,7 @@ import {
   addFavorite,
   deleteFavorite,
 } from "../../controller/favoriteController.js";
-import { connectTestDB, disconnectTestDB } from "../setupTestDB.js";
+import { connectTestDB, disconnectTestDB } from "../../utils/setupTestDB.js";
 import Favorite from "../../model/Favorite.js";
 
 beforeAll(async () => connectTestDB());

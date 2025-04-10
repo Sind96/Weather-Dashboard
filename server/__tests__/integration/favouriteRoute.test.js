@@ -1,7 +1,7 @@
 import request from "supertest";
 import mongoose from "mongoose";
 import app from "../../index.js";
-import { connectTestDB, disconnectTestDB } from "../setupTestDB";
+import { connectTestDB, disconnectTestDB } from "../../utils/setupTestDB.js";
 import Favorite from "../../model/Favorite.js";
 import { response } from "express";
 
