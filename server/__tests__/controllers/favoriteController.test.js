@@ -56,7 +56,7 @@ test("deleteFavorite should delete a city from favourites", async () => {
 
   await deleteFavorite(req, res);
 
-  expect(res.status).toHaveBeenCalledWith(204);
+  expect(res.status).toHaveBeenCalledWith(202);
   expect(res.json).toHaveBeenCalledWith({
     message: "City removed from favourites",
   });

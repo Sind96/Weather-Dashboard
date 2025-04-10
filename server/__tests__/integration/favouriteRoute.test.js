@@ -40,7 +40,7 @@ describe("Test API Endpoints", () => {
 
     const response = await request(app).delete(`/favorites/${city.city}`);
 
-    expect(response.status).toBe(204);
+    expect(response.status).toBe(202);
     expect(response.body.message).toBe("City removed from favourites");
   });
 });

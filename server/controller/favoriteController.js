@@ -32,7 +32,7 @@ export const deleteFavorite = async (req, res) => {
   const { city } = req.params;
   try {
     await Favorite.findOneAndDelete({ city: city });
-    res.status(204).json({ message: "City removed from favourites" });
+    res.status(202).json({ message: "City removed from favourites" });
   } catch (error) {
     console.error(`Error in deleteFavorite: ${error.message}\n${error.stack}`);
     res.status(500).json({ error: "Internal Server error" });
